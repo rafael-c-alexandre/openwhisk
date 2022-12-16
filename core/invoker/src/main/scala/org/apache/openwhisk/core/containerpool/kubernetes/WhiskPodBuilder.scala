@@ -132,8 +132,8 @@ class WhiskPodBuilder(client: NamespacedKubernetesClient, config: KubernetesClie
     containerBuilder
       .editOrNewSecurityContext()
       .editOrNewCapabilities()
-      .addToDrop("NET_RAW", "NET_ADMIN")
       .endCapabilities()
+      .withPrivileged(true)
       .endSecurityContext()
 
     val pod = containerBuilder
