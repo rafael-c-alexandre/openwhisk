@@ -121,6 +121,7 @@ class WhiskPodBuilder(client: NamespacedKubernetesClient, config: KubernetesClie
       .endResources()
       .withName(actionContainerName)
       .withImage(image)
+      .withTty(true)
       .withEnv(envVars.asJava)
       .addNewPort()
       .withContainerPort(8080)
